@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<config>
+	 <tabs>
+        <vijayhideprice translate="label">
+            <label>Vijay Hide Price</label>
+            <sort_order>150</sort_order>
+        </vijayhideprice>
+    </tabs>
+    <sections>
+        <priceconfig translate="label" module="adminhtml">
+            <label>Hide Price For Non Registered</label>
+            <tab>vijayhideprice</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+				<priceareas>
+					<label>Hide Price Configuration</label>
+					 <sort_order>52</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>			
+					<fields>
+						<price translate="label comment">
+                            <label>Show Price</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>53</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                              <comment>Yes to show price for non register user</comment>
+                        </price>
+                        <addtocart translate="label comment">
+                            <label>Show Add to cart</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>54</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                             <comment>Yes to show addtocart for non register user</comment>
+                        </addtocart>
+                        <wc translate="label comment">
+                            <label>Show Wishlist and Compare</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>55</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Yes to show  compare and wishlist for non register user</comment>
+                        </wc>   
+                         <review translate="label comment">
+                            <label>Show Reviews</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>56</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Yes to show review for non register user</comment>
+                        </review>                     
+					</fields>
+			</priceareas>
+            </groups>
+            <groups>
+				 <module_config translate="label">
+					 <label>Hide Price For Non Register Users</label>
+					 <sort_order>50</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<active translate="label comment">
+                            <label>Enable Module</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>51</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[
+    <script type="text/javascript">
+    	document.observe("dom:loaded",function(){
+            if($('priceconfig_module_config_active').value == 0){
+                 Element.up($('priceconfig_priceareas')).hide();
+            }
+        });
+        Event.observe('priceconfig_module_config_active', 'change', function(){
+            if(this.value == 1){
+                Element.up($('priceconfig_priceareas')).show();
+            }else if(this.value == 0){
+                Element.up($('priceconfig_priceareas')).hide();
+            }
+        })
+    </script>]]>
+</comment>
+                        </active>
+					</fields>	
+				 </module_config>
+            </groups>
+            
+         </priceconfig>
+ </sections>
+</config>

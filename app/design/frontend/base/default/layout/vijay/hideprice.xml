@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<!-- Blocks for hiding the price of the product from the end user starts -->
+		<reference name="catalog_product_price_template">
+			<action method="addPriceBlockType" ifconfig="priceconfig/module_config/active">
+				<type>simple</type>
+				<block>catalog/product_price</block>
+				<template>vijay/hideprice/price.phtml</template>
+			</action>
+			<action method="addPriceBlockType" ifconfig="priceconfig/module_config/active">
+				<type>grouped</type>
+				<block>catalog/product_price</block>
+				<template>vijay/hideprice/price.phtml</template>
+			</action>
+			<action method="addPriceBlockType" ifconfig="priceconfig/module_config/active">
+				<type>configurable</type>
+				<block>catalog/product_price</block>
+				<template>vijay/hideprice/price.phtml</template>
+			</action>
+			<action method="addPriceBlockType" ifconfig="priceconfig/module_config/active">
+				<type>virtual</type>
+				<block>catalog/product_price</block>
+				<template>vijay/hideprice/price.phtml</template>
+			</action>
+			<action method="addPriceBlockType" ifconfig="priceconfig/module_config/active">
+				<type>bundled</type>
+				<block>catalog/product_price</block>
+				<template>vijay/hideprice/price.phtml</template>
+			</action>
+		</reference>
+		<!-- Blocks for hiding the price of the product from the end user ends -->
+	</default>
+	<catalog_category_default>
+		<reference name="product_list">
+			<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+				<template>vijay/hideprice/list.phtml</template>
+			</action>
+			<action method="addReviewSummaryTemplate" ifconfig="priceconfig/module_config/active">
+				<type>default</type>
+				<template>vijay/hideprice/summary.phtml</template>
+			</action>
+			<action method="addReviewSummaryTemplate" ifconfig="priceconfig/module_config/active">
+				<type>short</type>
+				<template>vijay/hideprice/summary_short.phtml</template>
+			</action>
+		</reference>
+	</catalog_category_default>
+	<catalog_category_layered>
+		<reference name="product_list">
+			<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+				<template>vijay/hideprice/list.phtml</template>
+			</action>
+		</reference>
+	</catalog_category_layered>
+	<catalog_product_view>
+		<reference name="product.info.addtocart">
+			<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+				<template>vijay/hideprice/addtocart.phtml</template>
+			</action>
+		</reference>
+		<reference name="product.info">
+			<reference name="product.reviews">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/review/product/view/list.phtml</template>
+				</action>
+			</reference>
+		</reference>
+	</catalog_product_view>
+	<catalog_product_view>
+		<reference name="product.info.addto">
+			<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+				<template>vijay/hideprice/addto.phtml</template>
+			</action>
+		</reference>
+	</catalog_product_view>
+	<catalog_product_view>
+		<reference name="content">
+			<reference name="product.info">
+				<action method="addReviewSummaryTemplate" ifconfig="priceconfig/module_config/active">
+					<type>default</type>
+					<template>vijay/hideprice/summary.phtml</template>
+				</action>
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/view.phtml</template>
+				</action>
+			</reference>
+		</reference>
+		<reference name="product.info.upsell">
+			<action method="addReviewSummaryTemplate" ifconfig="priceconfig/module_config/active">
+				<type>default</type>
+				<template>vijay/hideprice/summary.phtml</template>
+			</action>
+		</reference>
+		<reference name="right">
+			<reference name="catalog.product.related">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/related.phtml</template>
+				</action>
+			</reference>
+		</reference>
+	</catalog_product_view>
+	<catalog_product_compare_index>
+		<reference name="catalog.compare.list">
+			<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+				<template>vijay/hideprice/compare/list.phtml</template>
+			</action>
+		</reference>
+	</catalog_product_compare_index>
+	<tag_product_list translate="label">
+		<reference name="content">
+			<reference name="tag_products">
+				<reference name="search_result_list">
+					<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+						<template>vijay/hideprice/tag/list.phtml</template>
+					</action>
+				</reference>
+			</reference>
+		</reference>
+	</tag_product_list>
+	<review_product_list translate="label">
+		<reference name="content">
+			<reference name="product.info">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/view.phtml</template>
+				</action>
+			</reference>
+			<reference name="product.info.addtocart">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/addtocart.phtml</template>
+				</action>
+			</reference>
+			<reference name="product.info.addto">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/addto.phtml</template>
+				</action>
+			</reference>
+			<reference name="product_review_list.count">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/review/product/view/count.phtml</template>
+				</action>
+			</reference>
+			<reference name="product.info.product_additional_data">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/review/product/view/list.phtml</template>
+				</action>
+			</reference>
+		</reference>
+	</review_product_list>
+	<catalogsearch_result_index translate="label">
+		<reference name="content">
+			<reference name="search_result_list">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/list.phtml</template>
+				</action>
+			</reference>
+		</reference>
+	</catalogsearch_result_index>
+	<catalogsearch_advanced_result translate="label">
+		<reference name="content">
+			<reference name="search_result_list">
+				<action method="setTemplate" ifconfig="priceconfig/module_config/active">
+					<template>vijay/hideprice/list.phtml</template>
+				</action>
+			</reference>
+		</reference>
+	</catalogsearch_advanced_result>
+</layout>
